@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - Student Portal</title>
+    <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-olive sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">StudentKit Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="submit-complaint.html">Lodge Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-complaint.html">Track Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="support.html">Contact Support</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm px-3 ms-lg-2" href="login.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="mb-4 text-center">
+            <h1 class="fw-bold">Contact Support & Helpdesk</h1>
+            <p class="text-muted">Reach out directly for portal issues, PIN resets, or emergency assistance.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Contact Info Column -->
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h5 class="fw-bold mb-3 text-olive">Emergency Lines</h5>
+                    <ul class="list-unstyled lh-lg text-secondary">
+                        <li>📍 <strong>Dean of Student Affairs:</strong> Deans office, Maiin Campus</li>
+                        <li>📞 <strong>Campus Emergency Tel:</strong> +234 810 511 6736</li>
+                        <li>📧 <strong>ICT Helpdesk:</strong> support@university.edu.ng</li>
+                        <li>🕒 <strong>Hours:</strong> Mon - Fri, 8:00 AM - 4:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Direct Support Form Column -->
+            <div class="col-md-7">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h5 class="fw-bold mb-3">Send Support Message</h5>
+                    <form id="supportForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email Address</label>
+                            <input type="email" class="form-control" placeholder="student@university.edu.ng" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Topic</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Select Support Topic</option>
+                                <option value="login">PIN / Matric Login Issue</option>
+                                <option value="bug">Technical Web Bug</option>
+                                <option value="followup">Ticket Follow-up</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Description</label>
+                            <textarea class="form-control" rows="4" placeholder="Describe your issue..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-olive w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            &copy; 2026 Student Complaint & Feedback System. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="src/src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Support message sent successfully! We will get back to you shortly.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Student Feedback & Resolution Portal</title>
+    <link href="./src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-olive sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">StudentKit Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="submit-complaint.html">Lodge Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-complaint.html">Track Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Support</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm px-3 ms-lg-2" href="login.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <main class="container my-5">
+        <div class="row align-items-center g-5 py-3">
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold text-dark lh-sm mb-3">
+                    Student Complaint & Automated Resolution Platform
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Submit campus issues directly for automated summarization, routing, policy checking, and institutional resolution.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="submit-complaint.html" class="btn btn-olive btn-lg px-4 me-md-2">Lodge a Complaint</a>
+                    <a href="track-complaint.html" class="btn btn-outline-secondary btn-lg px-4">Track Status</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm p-4 bg-white">
+                    <h5 class="fw-bold mb-3 text-olive">System Objectives</h5>
+                    <ul class="list-unstyled lh-lg text-secondary mb-0">
+                        <li>✔️ Automated AI issue summarization</li>
+                        <li>✔️ Direct department routing</li>
+                        <li>✔️ Policy-grounded resolution drafting</li>
+                        <li>✔️ Anonymous feedback submission</li>
+                        <li>✔️ Real-time ticket tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            &copy; 2026 Student Complaint & Feedback System. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

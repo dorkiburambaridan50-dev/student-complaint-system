@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lodge Complaint - Student Portal</title>
+    <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-olive sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">StudentKit Portal</a><img src="fuet.png.jpg" alt="school logo" sizes="40" srcset="d-none">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="submit-complaint.html">Lodge Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-complaint.html">Track Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Support</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm px-3 ms-lg-2" href="login.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <main class="container my-5">
+        <div class="mb-4">
+            <h1 class="fw-bold display-6">Student Complaint & Feedback Box</h1>
+            <p class="text-muted">Submit issues directly for automated summarization, routing, and institutional resolution.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header card-header-olive d-flex justify-content-between align-items-center py-3">
+                        <h5 class="card-title mb-0 fs-5">Lodge a Complaint</h5>
+                        <span class="badge bg-light text-dark">Secure</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="complaintForm">
+                            <div class="mb-3">
+                                <label for="complaintTitle" class="form-label fw-semibold">Complaint Subject <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="complaintTitle" placeholder="e.g. porta logins issue" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="category" class="form-label fw-semibold">Category <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="category" required>
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option value="Academics">Academics & Grading</option>
+                                        <option value="Facilities">Hostel & Facilities</option>
+                                        <option value="IT/Portal">IT & Student Portal</option>
+                                        <option value="Finance">Finance & Fees</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="urgency" class="form-label fw-semibold">Urgency Level <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="urgency" required>
+                                        <option value="Low">Low (General Inquiry)</option>
+                                        <option value="Medium" selected>Medium (Standard Issue)</option>
+                                        <option value="High">High (Emergency)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="complaintBody" class="form-label fw-semibold">Detailed Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="complaintBody" rows="5" placeholder="Provide details, dates, room numbers, or relevant context..." required></textarea>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="isAnonymous">
+                                <label class="form-check-label text-muted" for="isAnonymous">
+                                    Submit anonymously (Hides identity details)
+                                </label>
+                            </div>
+
+                            <button type="submit" id="submitBtn" class="btn btn-olive w-100 py-2 fs-6">
+                                Submit Complaint
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resolution Processing Preview -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header bg-dark text-white py-3">
+                        <h5 class="card-title mb-0 fs-5">Resolution Processing Preview</h5>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-center">
+                        <div id="emptyState" class="text-center py-5 text-muted">
+                            <div class="mb-3 fs-1">📥</div>
+                            <p class="mb-0 fs-6">Fill out and submit the form to view ticket summary and resolution preview.</p>
+                        </div>
+
+                        <div id="ticketPreview" class="d-none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span id="ticketId" class="badge bg-primary fs-6">TICKET #----</span>
+                                <span id="ticketUrgency" class="badge bg-warning text-dark fs-6">Urgency</span>
+                            </div>
+
+                            <h4 id="previewTitle" class="fw-bold mb-3">---</h4>
+
+                            <div class="d-flex gap-4 text-muted small mb-3 border-bottom pb-2">
+                                <span>Category: <strong id="previewCategory">---</strong></span>
+                                <span>Sender: <strong id="previewSender">---</strong></span>
+                            </div>
+
+                            <div class="summary-box mb-3">
+                                <h6 class="fw-bold text-dark">AI Generated Summary</h6>
+                                <p id="previewSummary" class="mb-0 text-secondary">Processing...</p>
+                            </div>
+
+                            <div class="draft-box">
+                                <h6 class="fw-bold text-success">Auto-Drafted Solution</h6>
+                                <p id="previewDraft" class="mb-0 text-secondary">Drafting response...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            &copy; 2026 Student Complaint & Feedback System. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="src/src/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('complaintTitle').value;
+            const category = document.getElementById('category').value;
+            const urgency = document.getElementById('urgency').value;
+            const body = document.getElementById('complaintBody').value;
+            const isAnonymous = document.getElementById('isAnonymous').checked;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Submitting...`;
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                const ticketId = 'TKT-' + Math.floor(1000 + Math.random() * 9000);
+                const sender = isAnonymous ? 'Anonymous Student' : 'Authenticated Student';
+
+                document.getElementById('ticketId').innerText = ticketId;
+                document.getElementById('previewTitle').innerText = title;
+                document.getElementById('previewCategory').innerText = category;
+                document.getElementById('previewSender').innerText = sender;
+
+                const urgencyBadge = document.getElementById('ticketUrgency');
+                urgencyBadge.innerText = urgency + ' Urgency';
+                urgencyBadge.className = urgency === 'High' ? 'badge bg-danger fs-6' : (urgency === 'Medium' ? 'badge bg-warning text-dark fs-6' : 'badge bg-success fs-6');
+
+                document.getElementById('previewSummary').innerText = `Issue regarding ${category}. Summary: "${body.substring(0, 90)}..."`;
+                document.getElementById('previewDraft').innerText = `Thank you for reporting this issue. Ticket #${ticketId} has been logged and assigned to ${category} department.`;
+
+                document.getElementById('emptyState').classList.add('d-none');
+                document.getElementById('ticketPreview').classList.remove('d-none');
+
+                submitBtn.innerHTML = `Submit Complaint`;
+                submitBtn.disabled = false;
+            }, 800);
+        });
+    </script>
+</body>
+</html>

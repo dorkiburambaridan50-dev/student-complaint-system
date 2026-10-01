@@ -1,0 +1,56 @@
+
+        :root {
+            --brand-olive: #556B2F;
+            --brand-olive-dark: #4C5D23;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Top Navigation Bar */
+        .bg-olive {
+            background-color: var(--brand-olive) !important;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            background: white;
+            padding: 2px;
+            border-radius: 5%;
+        }
+
+        /* Card Header Olive Styling */
+        .card-header-olive {
+            background-color: var(--brand-olive);
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-olive {
+            background-color: var(--brand-olive);
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-olive:hover {
+            background-color: var(--brand-olive-dark);
+            color: white;
+        }
+
+        /* Output Summary Boxes */
+        .summary-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--brand-olive);
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .draft-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 12px;
+            border-radius: 4px;
+        }
+    

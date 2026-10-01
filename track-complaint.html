@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaint - Student Portal</title>
+    <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-olive sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">StudentKit Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="submit-complaint.html">Lodge Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="track-complaint.html">Track Complaint</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Support</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm px-3 ms-lg-2" href="login.html">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header card-header-olive py-3 text-center">
+                        <h4 class="mb-0 fw-bold">Track Complaint Status</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="trackForm">
+                            <div class="mb-3">
+                                <label for="ticketInput" class="form-label fw-semibold">Enter Ticket ID</label>
+                                <input type="text" class="form-control form-control-lg" id="ticketInput" placeholder="e.g. TKT-4892" required>
+                            </div>
+                            <button type="submit" class="btn btn-olive w-100 py-2">Check Status</button>
+                        </form>
+
+                        <div id="statusResult" class="mt-4 d-none p-3 border rounded bg-light">
+                            <h6 class="fw-bold text-dark">Ticket Details</h6>
+                            <p class="mb-1"><strong>Status:</strong> <span class="badge bg-warning text-dark">In Progress</span></p>
+                            <p class="mb-1"><strong>Assigned Department:</strong> Student Affairs / Facilities</p>
+                            <p class="mb-0"><strong>Estimated Resolution:</strong> 24-48 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center small">
+            &copy; 2026 Student Complaint & Feedback System. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="src/src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('trackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('statusResult').classList.remove('d-none');
+        });
+    </script>
+</body>
+</html>
